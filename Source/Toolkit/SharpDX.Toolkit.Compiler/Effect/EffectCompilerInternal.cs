@@ -1128,7 +1128,10 @@ namespace SharpDX.Toolkit.Graphics
                                                 null,
                                                 includeHandler,
                                                 filePath);
-            return result;
+            var message2 = result.Message == null ? null : replaceBackSlash.Replace(result.Message, @"\");
+            return message2 == result.Message
+                ? result
+                : new CompilationResult(result.Bytecode, result.ResultCode, message2);
         }
 
         private EffectData.Shader CreateEffectShader(EffectShaderType type, string shaderName, ShaderBytecode bytecode)
