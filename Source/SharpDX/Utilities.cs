@@ -157,6 +157,17 @@ namespace SharpDX
         }
 
         /// <summary>
+        /// Clears the memory.
+        /// </summary>
+        /// <param name="dest">The dest.</param>
+        /// <param name="value">The value.</param>
+        /// <param name="sizeInBytesToClear">The size in bytes to clear.</param>
+        public unsafe static void ClearMemory(void* dest, byte value, int sizeInBytesToClear)
+        {
+            Interop.memset(dest, value, sizeInBytesToClear);
+        }
+
+        /// <summary>
         /// Return the sizeof a struct from a CLR. Equivalent to sizeof operator but works on generics too.
         /// </summary>
         /// <typeparam name="T">A struct to evaluate.</typeparam>

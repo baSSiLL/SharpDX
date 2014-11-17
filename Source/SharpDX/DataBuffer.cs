@@ -186,7 +186,7 @@ namespace SharpDX
         /// </summary>
         public unsafe void Clear(byte value = 0)
         {
-            Utilities.ClearMemory((IntPtr)_buffer, value, Size);
+            Utilities.ClearMemory(_buffer, value, Size);
         }
 
         /// <summary>
